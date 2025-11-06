@@ -1,0 +1,58 @@
+plugins {
+    id 'multiloader-loader'
+    id 'net.neoforged.moddev'
+}
+
+neoForge {
+    version = neoforge_version
+
+    runs {
+        configureEach {
+            systemProperty('neoforge.enabledGameTestNamespaces', mod_id)
+            ideName = "NeoForge ${it.name.capitalize()} (${project.path})"
+            gameDirectory = project.getLayout().getProjectDirectory().dir("run/${it.name}")
+        }
+        client {
+            client()
+        }
+        data {
+            programArgument("--server")
+            programArgument("--client")
+            programArgument("--mod")
+            programArgument(mod_id)
+            programArgument("--output")
+            programArgument(file('src/generated/resources/').getAbsolutePath())
+            programArgument("--existing")
+            programArgument(file('src/main/resources/').getAbsolutePath())
+            data()
+        }
+        server {
+            server()
+        }
+    }
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+
+dependencies {
+    implementation "curse.maven:storagedrawers-223852:${neoforge_storagedrawers}"
+
+    implementation "curse.maven:biomes-o-plenty-220318:${neoforge_biomesoplenty}"
+    implementation "curse.maven:glitchcore-955399:${neoforge_glitchcore}"
+    implementation "curse.maven:terrablender-neoforge-940057:${neoforge_terrablender}"
+
+    implementation "curse.maven:oh-the-biomes-weve-gone-1070751:${neoforge_ohthebiomeswevegone}"
+    implementation "curse.maven:oh-the-trees-youll-grow-962544:${neoforge_ohthetreesyoullgrow}"
+    implementation "curse.maven:corgilib-693313:${neoforge_corgilib}"
+    implementation "curse.maven:geckolib-388172:${neoforge_geckolib}"
+
+    implementation "curse.maven:immersive-engineering-231951:${neoforge_immersive_engineering}"
+
+    implementation "curse.maven:jei-238222:${neoforge_jei}"
+}
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }

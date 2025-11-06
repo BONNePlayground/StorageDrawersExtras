@@ -20,5 +20,9 @@ runtime-1.8/
 run/
 build/
 src/generated/
+/fabric/src/generated/
+/forge/src/generated/
+/neoforge/src/generated/
 run-data/
 .idea/
+

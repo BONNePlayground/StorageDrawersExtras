@@ -1,0 +1,66 @@
+plugins {
+    id 'multiloader-loader'
+    id 'fabric-loom'
+}
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings loom.layered {
+        officialMojangMappings()
+    }
+    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+
+    modImplementation "curse.maven:storagedrawers-223852:${fabric_storagedrawers}"
+
+    // Content Deps
+    modImplementation "curse.maven:biomes-o-plenty-220318:${fabric_biomesoplenty}"
+    modImplementation "curse.maven:glitchcore-955399:${fabric_glitchcore}"
+    modImplementation "curse.maven:terrablender-fabric-565956:${fabric_terrablender}"
+
+    modImplementation "curse.maven:oh-the-biomes-weve-gone-1070751:${fabric_ohthebiomeswevegone}"
+    modImplementation "curse.maven:oh-the-trees-youll-grow-962544:${fabric_ohthetreesyoullgrow}"
+    modImplementation "curse.maven:corgilib-693313:${fabric_corgilib}"
+    modImplementation "curse.maven:geckolib-388172:${fabric_geckolib}"
+
+    modImplementation "curse.maven:jei-238222:${fabric_jei}"
+
+//    include implementation("com.electronwill.night-config:core:${night_config}")
+//    include implementation("com.electronwill.night-config:toml:${night_config}")
+//    include implementation("net.jodah:typetools:${typetools}")
+}
+
+fabricApi {
+    configureDataGeneration() {
+        client = true
+        outputDirectory = file("src/generated/resources")
+    }
+}
+
+loom {
+    mixin {
+        defaultRefmapName.set("${mod_id}.refmap.json")
+    }
+    runs {
+        client {
+            client()
+            setConfigName('Fabric Client')
+            ideConfigGenerated(true)
+            runDir('run/client')
+        }
+        server {
+            server()
+            setConfigName('Fabric Server')
+            ideConfigGenerated(true)
+            runDir('run/server')
+        }
+        data {
+            client()
+            setConfigName("Fabric Data")
+            ideConfigGenerated(true)
+            vmArg("-Dfabric-api.datagen")
+            vmArg("-Dfabric-api.datagen.output-dir=${file("src/generated/resources")}")
+            vmArg("-Dfabric-api.datagen.modid=${mod_id}")
+            runDir("run/data")
+        }
+    }
+}

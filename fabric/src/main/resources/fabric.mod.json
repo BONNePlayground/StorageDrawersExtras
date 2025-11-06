@@ -1,0 +1,40 @@
+{
+    "schemaVersion": 1,
+    "id": "${mod_id}",
+    "version": "${version}",
+    "name": "${mod_name}",
+    "description": "${description}",
+    "authors": [
+        "${mod_author}"
+    ],
+    "contact": {
+        "homepage": "https://www.curseforge.com/minecraft/mc-mods/storage-drawers-extra-reloaded",
+        "sources": "https://github.com/BONNePlayground/StorageDrawersExtras",
+        "issues": "https://github.com/BONNePlayground/StorageDrawersExtras/issues"
+    },
+    "license": "${license}",
+    "icon": "icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+          "com.jaquadro.minecraft.storagedrawersextra.StorageDrawersExtrasFabric"
+        ],
+        "fabric-datagen": [
+          "com.jaquadro.minecraft.storagedrawersextra.data.DataGenerators"
+        ]
+    },
+    "mixins": [
+      "${mod_id}.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=${fabric_loader_version}",
+        "fabric-api": "*",
+        "minecraft": "${minecraft_version}",
+        "java": ">=${java_version}",
+        "storagedrawers": ">=13"
+    },
+    "suggests": {
+        "biomeswevegone": "*",
+        "biomesoplenty": "*"
+    }
+}
