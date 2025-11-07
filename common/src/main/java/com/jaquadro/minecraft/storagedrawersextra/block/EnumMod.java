@@ -11,6 +11,7 @@ public enum EnumMod implements StringRepresentable
     BIOMESWEVEGONE("biomeswevegone", VariantRegistry.BIOMESWEVEGONE_ASPEN),
     IMMENG("immersiveengineering", VariantRegistry.IMMERSIVEENGINEERING_TREATED_WOOD),
     AUTUMNITY("autumnity", VariantRegistry.AUTUMNITY_MAPLE),
+    ECOLOGICS("ecologics", VariantRegistry.ECOLOGICS_AZALEA_PLANKS),
     ;
 
     private final String id;

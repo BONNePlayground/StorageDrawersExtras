@@ -22,6 +22,9 @@ dependencies {
     modImplementation "curse.maven:corgilib-693313:${fabric_corgilib}"
     modImplementation "curse.maven:geckolib-388172:${fabric_geckolib}"
 
+    modImplementation "curse.maven:ecologics-570463:${fabric_ecologics}"
+    modImplementation "curse.maven:cloth-config-348521:${fabric_cloth_config}"
+
     modImplementation "curse.maven:jei-238222:${fabric_jei}"
 
 //    include implementation("com.electronwill.night-config:core:${night_config}")
