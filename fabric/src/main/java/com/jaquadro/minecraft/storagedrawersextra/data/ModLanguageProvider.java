@@ -25,7 +25,7 @@ public class ModLanguageProvider extends FabricLanguageProvider
 
         for (VariantRegistry variant : VariantRegistry.values())
         {
-            translationBuilder.add("block.storagedrawersextrareloaded.mat." + variant.name().toLowerCase(),
+            translationBuilder.add("block.storagedrawersextrareloaded.mat." + variant.getModid() + "_" + variant.getName(),
                 ModLanguageProvider.capitalizeFirstLetters(variant.getName()));
         }
     }

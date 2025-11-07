@@ -23,7 +23,7 @@ public class ModLanguageProvider extends LanguageProvider
 
         for (VariantRegistry variant : VariantRegistry.values())
         {
-            this.add("block.storagedrawersextrareloaded.mat." + variant.name().toLowerCase(),
+            this.add("block.storagedrawersextrareloaded.mat." + variant.getModid() + "_" + variant.getName(),
                 ModLanguageProvider.capitalizeFirstLetters(variant.getName()));
         }
     }
