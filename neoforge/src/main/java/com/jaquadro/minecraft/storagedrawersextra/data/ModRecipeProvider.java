@@ -60,7 +60,8 @@ public class ModRecipeProvider extends RecipeProvider
                 .pattern("x/x")
                 .define('x', plank.value())
                 .define('/', SDETags.RODS_WOODEN)
-                .group(StorageDrawersExtra.MOD_ID)
+                .group(StorageDrawersExtra.MOD_ID + ":" + variant.name())
+                .unlockedBy("has_item", has(plank.value()))
                 .unlockedBy("has_item", has(plank.value()))
                 .save(recipeOutput.withConditions(new ModLoadedCondition(variant.getModid()))));
     }
@@ -82,8 +83,9 @@ public class ModRecipeProvider extends RecipeProvider
                 .pattern("///")
                 .define('x', SDETags.CHESTS_WOODEN)
                 .define('/', plank.value())
-                .group(StorageDrawersExtra.MOD_ID)
+                .group(StorageDrawersExtra.MOD_ID + ":" + variant.name())
                 .unlockedBy("has_item", has(SDETags.CHESTS_WOODEN))
+                .unlockedBy("has_item", has(plank.value()))
                 .save(recipeOutput.withConditions(new ModLoadedCondition(variant.getModid())));
         });
     }
@@ -104,8 +106,9 @@ public class ModRecipeProvider extends RecipeProvider
                 .pattern("/x/")
                 .define('x', SDETags.CHESTS_WOODEN)
                 .define('/', plank.value())
-                .group(StorageDrawersExtra.MOD_ID)
+                .group(StorageDrawersExtra.MOD_ID + ":" + variant.name())
                 .unlockedBy("has_item", has(SDETags.CHESTS_WOODEN))
+                .unlockedBy("has_item", has(plank.value()))
                 .save(recipeOutput.withConditions(new ModLoadedCondition(variant.getModid())));
         });
     }
@@ -126,8 +129,9 @@ public class ModRecipeProvider extends RecipeProvider
                 .pattern("x/x")
                 .define('x', SDETags.CHESTS_WOODEN)
                 .define('/', plank.value())
-                .group(StorageDrawersExtra.MOD_ID)
+                .group(StorageDrawersExtra.MOD_ID + ":" + variant.name())
                 .unlockedBy("has_item", has(SDETags.CHESTS_WOODEN))
+                .unlockedBy("has_item", has(plank.value()))
                 .save(recipeOutput.withConditions(new ModLoadedCondition(variant.getModid())));
         });
     }

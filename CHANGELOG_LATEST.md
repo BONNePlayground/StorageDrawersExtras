@@ -12,5 +12,8 @@
 - Added Drift wood drawer from Upgrade Aquatic
 - Added River wood drawer from Upgrade Aquatic
 
+- Changed recipe grouping by wood type, instead of everything being in same group
+- Changed recipe unlock condition: requires plank/slab of given wood type.
+
 WARNING:
 - treated wood drawers will break when updating from 13.0 to 13.1

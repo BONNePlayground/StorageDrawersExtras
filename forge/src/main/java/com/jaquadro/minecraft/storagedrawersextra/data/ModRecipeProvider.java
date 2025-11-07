@@ -61,8 +61,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .pattern("x/x")
                     .define('x', plank.value())
                     .define('/', SDETags.RODS_WOODEN)
-                    .group(StorageDrawersExtra.MOD_ID)
-                    .unlockedBy("has_item", has(plank.value()))::save).
+                    .group(StorageDrawersExtra.MOD_ID + ":" + variant.name())
+                    .unlockedBy("has_item", has(plank.value()))
+                    .unlockedBy("has_item", has(plank.value()))
+                    ::save).
                 save(recipeOutput, variant.getData().blockTrim.getId());
         });
     }
@@ -87,8 +89,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .pattern("///")
                     .define('x', SDETags.CHESTS_WOODEN)
                     .define('/', plank.value())
-                    .group(StorageDrawersExtra.MOD_ID)
-                    .unlockedBy("has_item", has(SDETags.CHESTS_WOODEN))::save).
+                    .group(StorageDrawersExtra.MOD_ID + ":" + variant.name())
+                    .unlockedBy("has_item", has(SDETags.CHESTS_WOODEN))
+                    .unlockedBy("has_item", has(plank.value()))
+                    ::save).
                 save(recipeOutput, block.getId());
         });
     }
@@ -112,8 +116,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .pattern("/x/")
                     .define('x', SDETags.CHESTS_WOODEN)
                     .define('/', plank.value())
-                    .group(StorageDrawersExtra.MOD_ID)
-                    .unlockedBy("has_item", has(SDETags.CHESTS_WOODEN))::save).
+                    .group(StorageDrawersExtra.MOD_ID + ":" + variant.name())
+                    .unlockedBy("has_item", has(SDETags.CHESTS_WOODEN))
+                    .unlockedBy("has_item", has(plank.value()))
+                    ::save).
                 save(recipeOutput, block.getId());
         });
     }
@@ -137,8 +143,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .pattern("x/x")
                     .define('x', SDETags.CHESTS_WOODEN)
                     .define('/', plank.value())
-                    .group(StorageDrawersExtra.MOD_ID)
-                    .unlockedBy("has_item", has(SDETags.CHESTS_WOODEN))::save).
+                    .group(StorageDrawersExtra.MOD_ID + ":" + variant.name())
+                    .unlockedBy("has_item", has(SDETags.CHESTS_WOODEN))
+                    .unlockedBy("has_item", has(plank.value()))
+                    ::save).
                 save(recipeOutput, block.getId());
         });
     }
