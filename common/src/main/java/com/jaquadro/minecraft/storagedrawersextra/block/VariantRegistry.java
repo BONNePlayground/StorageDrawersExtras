@@ -49,6 +49,7 @@ public enum VariantRegistry
     BIOMESWEVEGONE_WILLOW(MODID.BIOMESWEVEGONE, "willow", "willow_planks", "willow_slab"),
     BIOMESWEVEGONE_WITCHHAZEL(MODID.BIOMESWEVEGONE, "witch_hazel", "witch_hazel_planks", "witch_hazel_slab"),
     BIOMESWEVEGONE_ZELKOVA(MODID.BIOMESWEVEGONE, "zelkova", "zelkova_planks", "zelkova_slab"),
+    BIOMESWEVEGONE_SPIRIT(MODID.BIOMESWEVEGONE, "spirit", "spirit_planks", "spirit_slab"),
 
     IMMERSIVEENGINEERING_TREATED_WOOD(MODID.IMMERSIVEENGINEERING, "treated_wood", "treated_wood_horizontal", "slab_treated_wood_horizontal"),
     ;
