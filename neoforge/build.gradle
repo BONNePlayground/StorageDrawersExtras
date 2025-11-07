@@ -52,6 +52,10 @@ dependencies {
 
     implementation "curse.maven:immersive-engineering-231951:${neoforge_immersive_engineering}"
 
+    implementation "curse.maven:autumnity-365045:${neoforge_autumnity}"
+    implementation "curse.maven:blueprint-382216:${neoforge_blueprint}"
+    implementation "curse.maven:gallery-1173553:${neoforge_gallery}"
+
     implementation "curse.maven:jei-238222:${neoforge_jei}"
 }
 

@@ -52,6 +52,8 @@ public enum VariantRegistry
     BIOMESWEVEGONE_SPIRIT(MODID.BIOMESWEVEGONE, "spirit", "spirit_planks", "spirit_slab"),
 
     IMMERSIVEENGINEERING_TREATED_WOOD(MODID.IMMERSIVEENGINEERING, "treated_wood", "treated_wood_horizontal", "slab_treated_wood_horizontal"),
+
+    AUTUMNITY_MAPLE(MODID.AUTUMNITY, "maple", "maple_planks", "maple_slab"),
     ;
 
     private final String modid;
@@ -164,5 +166,7 @@ public enum VariantRegistry
         public static final String BIOMESWEVEGONE = "biomeswevegone";
 
         public static final String IMMERSIVEENGINEERING = "immersiveengineering";
+
+        public static final String AUTUMNITY = "autumnity";
     }
 }

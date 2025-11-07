@@ -14,6 +14,7 @@ Maintains the original aesthetic and compatibility goals
 *   [Biomes O’ Plenty](https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty) [fabric and neoforge]
 *   [Immersive Engineering](https://www.curseforge.com/minecraft/mc-mods/immersive-engineering) [neoforge]
 *   [Oh The Biomes We’ve Been](https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-weve-gone) [fabric and neoforge]
+*   [Autumnity](https://www.curseforge.com/minecraft/mc-mods/autumnity) [neoforge]
 
 #### 📦 Required Dependency
 
