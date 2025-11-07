@@ -1,6 +1,7 @@
 plugins {
     id 'multiloader-loader'
     id 'net.neoforged.moddev'
+    id 'com.matthewprenger.cursegradle' version '1.4.0'
 }
 
 neoForge {
@@ -64,3 +65,32 @@ dependencies {
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+curseforge {
+    project {
+        apiKey = System.getenv("CURSEFORGE_TOKEN")
+        id = "1379706"
+        changelog = rootProject.file("CHANGELOG_LATEST.md").text
+        changelogType = "markdown"
+        releaseType = "release"
+        addGameVersion "1.21.1"
+        addGameVersion "NeoForge"
+        addGameVersion "Java 21"
+
+        relations {
+            requiredDependency "storage-drawers"
+            optionalDependency "oh-the-biomes-weve-gone"
+            optionalDependency "biomes-o-plenty"
+            optionalDependency "ecologics"
+            optionalDependency "immersive-engineering"
+            optionalDependency "autumnity"
+            optionalDependency "upgrade-aquatic"
+        }
+        mainArtifact(tasks.jar) {
+            displayName = "${file_name}-${project.name}-${minecraft_version}-${version}"
+        }
+        options {
+            javaVersionAutoDetect = false
+        }
+    }
+}

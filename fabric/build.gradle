@@ -1,6 +1,7 @@
 plugins {
     id 'multiloader-loader'
     id 'fabric-loom'
+    id 'com.matthewprenger.cursegradle' version '1.4.0'
 }
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
@@ -64,6 +65,32 @@ loom {
             vmArg("-Dfabric-api.datagen.output-dir=${file("src/generated/resources")}")
             vmArg("-Dfabric-api.datagen.modid=${mod_id}")
             runDir("run/data")
+        }
+    }
+}
+
+curseforge {
+    project {
+        apiKey = System.getenv("CURSEFORGE_TOKEN")
+        id = "1379706"
+        changelog = rootProject.file("CHANGELOG_LATEST.md").text
+        changelogType = "markdown"
+        releaseType = "release"
+        addGameVersion "1.21.1"
+        addGameVersion "Fabric"
+        addGameVersion "Java 21"
+
+        relations {
+            requiredDependency "storage-drawers"
+            optionalDependency "oh-the-biomes-weve-gone"
+            optionalDependency "biomes-o-plenty"
+            optionalDependency "ecologics"
+        }
+        mainArtifact(tasks.remapJar) {
+            displayName = "${file_name}-${project.name}-${minecraft_version}-${version}"
+        }
+        options {
+            javaVersionAutoDetect = false
         }
     }
 }
