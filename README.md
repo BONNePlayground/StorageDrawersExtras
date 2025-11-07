@@ -16,6 +16,7 @@ Maintains the original aesthetic and compatibility goals
 *   [Oh The Biomes We’ve Been](https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-weve-gone) [fabric and neoforge]
 *   [Autumnity](https://www.curseforge.com/minecraft/mc-mods/autumnity) [neoforge]
 *   [Ecologics](https://www.curseforge.com/minecraft/mc-mods/ecologics) [fabric and neoforge]
+*   [Upgrade Aquatic](https://www.curseforge.com/minecraft/mc-mods/upgrade-aquatic) [neoforge]
 
 #### 📦 Required Dependency
 

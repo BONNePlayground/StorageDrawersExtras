@@ -58,6 +58,8 @@ dependencies {
 
     implementation "curse.maven:ecologics-570463:${neoforge_ecologics}"
 
+    implementation "curse.maven:upgrade-aquatic-326895:${neoforge_upgrade_aquatic}"
+
     implementation "curse.maven:jei-238222:${neoforge_jei}"
 }
 

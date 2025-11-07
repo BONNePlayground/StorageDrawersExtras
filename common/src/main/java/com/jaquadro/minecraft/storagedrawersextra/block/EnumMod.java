@@ -12,6 +12,7 @@ public enum EnumMod implements StringRepresentable
     IMMENG("immersiveengineering", VariantRegistry.IMMERSIVEENGINEERING_TREATED_WOOD),
     AUTUMNITY("autumnity", VariantRegistry.AUTUMNITY_MAPLE),
     ECOLOGICS("ecologics", VariantRegistry.ECOLOGICS_AZALEA_PLANKS),
+    UPGRADE_AQUATIC("upgrade_aquatic", VariantRegistry.ECOLOGICS_AZALEA_PLANKS),
     ;
 
     private final String id;

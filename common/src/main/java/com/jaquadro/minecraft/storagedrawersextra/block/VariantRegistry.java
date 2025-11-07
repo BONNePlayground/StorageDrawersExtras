@@ -59,6 +59,9 @@ public enum VariantRegistry
     ECOLOGICS_FLOWERING_AZALEA_PLANKS(EnumMod.ECOLOGICS, "flowering_azalea", "flowering_azalea_planks", "flowering_azalea_slab"),
     ECOLOGICS_COCONUT_PLANKS(EnumMod.ECOLOGICS, "coconut", "coconut_planks", "coconut_slab"),
     ECOLOGICS_WALNUT_PLANKS(EnumMod.ECOLOGICS, "walnut", "walnut_planks", "walnut_slab"),
+
+    UPGRADE_AQUATIC_DRIFTWOOD(EnumMod.UPGRADE_AQUATIC, "driftwood", "driftwood_planks", "driftwood_slab"),
+    UPGRADE_AQUATIC_RIVER(EnumMod.UPGRADE_AQUATIC, "river", "river_planks", "river_slab"),
     ;
 
     private final String modid;
