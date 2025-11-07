@@ -21,6 +21,9 @@ public enum VariantRegistry
     BIOMESOPLENTY_MAGIC(MODID.BIOMESOPLENTY, "magic", "magic_planks", "magic_slab"),
     BIOMESOPLENTY_UMBRAN(MODID.BIOMESOPLENTY, "umbran", "umbran_planks", "umbran_slab"),
     BIOMESOPLENTY_HELLBARK(MODID.BIOMESOPLENTY, "hellbark", "hellbark_planks", "hellbark_slab"),
+    BIOMESOPLENTY_PINE(MODID.BIOMESOPLENTY, "pine", "pine_planks", "pine_slab"),
+    BIOMESOPLENTY_MAPLE(MODID.BIOMESOPLENTY, "maple", "maple_planks", "maple_slab"),
+    BIOMESOPLENTY_EMPYREAL(MODID.BIOMESOPLENTY, "empyreal", "empyreal_planks", "empyreal_slab"),
 
     BIOMESWEVEGONE_ASPEN(MODID.BIOMESWEVEGONE, "aspen", "aspen_planks", "aspen_slab"),
     BIOMESWEVEGONE_BAOBAB(MODID.BIOMESWEVEGONE, "baobab", "baobab_planks", "baobab_slab"),
