@@ -1,5 +1,9 @@
 package com.jaquadro.minecraft.storagedrawersextra.platform.services;
 
+
+import java.util.List;
+
+
 public interface IPlatformHelper {
 
     /**
@@ -16,6 +20,12 @@ public interface IPlatformHelper {
      * @return True if the mod is loaded, false otherwise.
      */
     boolean isModLoaded(String modId);
+
+    /**
+     * Returns a list of loaded mod ID's
+     * @return The list of loaded mods.
+     */
+    List<String> getLoadedMods();
 
     /**
      * Check if the game is currently in a development environment.
