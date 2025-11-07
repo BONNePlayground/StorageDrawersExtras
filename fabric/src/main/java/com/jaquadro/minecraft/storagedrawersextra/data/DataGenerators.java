@@ -19,5 +19,6 @@ public class DataGenerators implements DataGeneratorEntrypoint
             new ModItemTagProvider(dataOutput, registryLookup, modBlockTagProvider));
 
         pack.addProvider(ModModelProvider::new);
+        pack.addProvider(ModLanguageProvider::new);
     }
 }

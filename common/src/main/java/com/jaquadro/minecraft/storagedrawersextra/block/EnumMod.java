@@ -9,7 +9,7 @@ public enum EnumMod implements StringRepresentable
 {
     BOP("biomesoplenty", VariantRegistry.BIOMESOPLENTY_FIR),
     BIOMESWEVEGONE("biomeswevegone", VariantRegistry.BIOMESWEVEGONE_ASPEN),
-    IMMENG("immersiveengineering", VariantRegistry.IMMENG_TREATED);
+    IMMENG("immersiveengineering", VariantRegistry.IMMERSIVEENGINEERING_TREATED_WOOD);
 
     private final String id;
 
