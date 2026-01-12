@@ -6,7 +6,6 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 
@@ -14,19 +13,25 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 public class DataGenerators
 {
     @SubscribeEvent
-    public static void gatherData(GatherDataEvent event)
+    public static void gatherData(GatherDataEvent.Server event)
     {
         DataGenerator generator = event.getGenerator();
         PackOutput output = generator.getPackOutput();
-        ExistingFileHelper helper = event.getExistingFileHelper();
 
-        generator.addProvider(event.includeServer(), new ModRecipeProvider.Runner(output, event.getLookupProvider()));
-        generator.addProvider(event.includeServer(), new ModLootTableProvider(output, event.getLookupProvider()));
-        generator.addProvider(event.includeServer(), new ModBlockTagProvider(output, event.getLookupProvider()));
-        generator.addProvider(event.includeServer(), new ModItemTagProvider(output, event.getLookupProvider()));
+        generator.addProvider(true, new ModRecipeProvider.Runner(output, event.getLookupProvider()));
+        generator.addProvider(true, new ModLootTableProvider(output, event.getLookupProvider()));
+        generator.addProvider(true, new ModBlockTagProvider(output, event.getLookupProvider()));
+        generator.addProvider(true, new ModItemTagProvider(output, event.getLookupProvider()));
+    }
 
-        generator.addProvider(event.includeClient(), new ModBlockStateProvider(output, helper));
-        generator.addProvider(event.includeClient(), new ModItemModelProvider(output, helper));
-        generator.addProvider(event.includeClient(), new ModLanguageProvider(output));
+
+    @SubscribeEvent
+    public static void gatherClientData(GatherDataEvent.Client event)
+    {
+        DataGenerator generator = event.getGenerator();
+        PackOutput output = generator.getPackOutput();
+
+        generator.addProvider(true, new ModModelProvider(output));
+        generator.addProvider(true, new ModLanguageProvider(output));
     }
 }

@@ -16,8 +16,17 @@ neoForge {
         client {
             client()
         }
-        data {
+        dataServer {
             programArgument("--server")
+            programArgument("--mod")
+            programArgument(mod_id)
+            programArgument("--output")
+            programArgument(file('src/generated/resources/').getAbsolutePath())
+            programArgument("--existing")
+            programArgument(file('src/main/resources/').getAbsolutePath())
+            serverData()
+        }
+        dataClient {
             programArgument("--client")
             programArgument("--mod")
             programArgument(mod_id)
@@ -25,7 +34,7 @@ neoForge {
             programArgument(file('src/generated/resources/').getAbsolutePath())
             programArgument("--existing")
             programArgument(file('src/main/resources/').getAbsolutePath())
-            data()
+            clientData()
         }
         server {
             server()
@@ -46,10 +55,10 @@ dependencies {
     implementation "curse.maven:glitchcore-955399:${neoforge_glitchcore}"
     implementation "curse.maven:terrablender-neoforge-940057:${neoforge_terrablender}"
 
-//    implementation "curse.maven:oh-the-biomes-weve-gone-1070751:${neoforge_ohthebiomeswevegone}"
-//    implementation "curse.maven:oh-the-trees-youll-grow-962544:${neoforge_ohthetreesyoullgrow}"
-//    implementation "curse.maven:corgilib-693313:${neoforge_corgilib}"
-//    implementation "curse.maven:geckolib-388172:${neoforge_geckolib}"
+    implementation "curse.maven:oh-the-biomes-weve-gone-1070751:${neoforge_ohthebiomeswevegone}"
+    implementation "curse.maven:oh-the-trees-youll-grow-962544:${neoforge_ohthetreesyoullgrow}"
+    implementation "curse.maven:corgilib-693313:${neoforge_corgilib}"
+    implementation "curse.maven:geckolib-388172:${neoforge_geckolib}"
 
 //    implementation "curse.maven:immersive-engineering-231951:${neoforge_immersive_engineering}"
 
@@ -61,7 +70,7 @@ dependencies {
 
 //    implementation "curse.maven:upgrade-aquatic-326895:${neoforge_upgrade_aquatic}"
 
-//    implementation "curse.maven:jei-238222:${neoforge_jei}"
+    implementation "curse.maven:jei-238222:${neoforge_jei}"
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
@@ -79,7 +88,7 @@ curseforge {
 
         relations {
             requiredDependency "storage-drawers"
-//            optionalDependency "oh-the-biomes-weve-gone"
+            optionalDependency "oh-the-biomes-weve-gone"
             optionalDependency "biomes-o-plenty"
 //            optionalDependency "ecologics"
 //            optionalDependency "immersive-engineering"

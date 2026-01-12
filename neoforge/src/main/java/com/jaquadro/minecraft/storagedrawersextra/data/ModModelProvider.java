@@ -1,78 +1,84 @@
 package com.jaquadro.minecraft.storagedrawersextra.data;
 
-import com.jaquadro.minecraft.storagedrawers.StorageDrawers;
-import com.jaquadro.minecraft.storagedrawers.block.BlockDrawers;
+import com.jaquadro.minecraft.storagedrawers.ModConstants;
 import com.jaquadro.minecraft.storagedrawers.block.BlockStandardDrawers;
 import com.jaquadro.minecraft.storagedrawers.core.ModBlockVariants;
 import com.jaquadro.minecraft.storagedrawersextra.StorageDrawersExtra;
 import com.jaquadro.minecraft.storagedrawersextra.block.VariantRegistry;
 
-import net.minecraft.core.Direction;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Optional;
+
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.ModelProvider;
+import net.minecraft.client.data.models.model.*;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.neoforged.neoforge.client.model.generators.*;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 
-public class ModBlockStateProvider extends BlockStateProvider
+public class ModModelProvider extends ModelProvider
 {
-    public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper)
+    public ModModelProvider(PackOutput output)
     {
-        super(output, StorageDrawersExtra.MOD_ID, exFileHelper);
+        super(output, StorageDrawersExtra.MOD_ID);
     }
 
-
     @Override
-    protected void registerStatesAndModels()
+    protected void registerModels(@NotNull BlockModelGenerators blockModels, @NotNull ItemModelGenerators itemModels)
     {
         for (VariantRegistry variant : VariantRegistry.values())
         {
             if (variant.getMod() == null || !variant.getMod().isLoaded()) continue;
 
-            this.registerVariant(variant);
+            this.registerVariant(variant, blockModels, itemModels);
         }
     }
 
-
-    void registerVariant(VariantRegistry variant)
+    void registerVariant(VariantRegistry variant, BlockModelGenerators gen, ItemModelGenerators itemModels)
     {
-        BlockModelBuilder blockTrim =
-            models().cubeAll(variant.getTrimModelName(), modLoc(variant.getTextureName("side")));
-
+        // Register trim block with simple cube_all model
+        ResourceLocation trimTexture = ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side"));
         ModBlockVariants.VariantData data = variant.getData();
-        this.simpleBlock(data.blockTrim.get(), blockTrim);
 
-        this.standardDrawer(variant, data.blockFull1.get(),
+        gen.createTrivialBlock(data.blockTrim.get(),
+            TexturedModel.CUBE.updateTexture(mapping ->
+                mapping.put(TextureSlot.ALL, trimTexture)));
+
+        // Register full drawers
+        this.standardDrawer(gen, variant, data.blockFull1.get(),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_1")),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
             1, false);
-        this.standardDrawer(variant, data.blockFull2.get(),
+        this.standardDrawer(gen, variant, data.blockFull2.get(),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_2")),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
             2, false);
-        this.standardDrawer(variant, data.blockFull4.get(),
+        this.standardDrawer(gen, variant, data.blockFull4.get(),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_4")),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
             4, false);
 
-        this.standardDrawer(variant, data.blockHalf1.get(),
+        // Register half drawers
+        this.standardDrawer(gen, variant, data.blockHalf1.get(),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_1")),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side_h")),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
             1, true);
-        this.standardDrawer(variant, data.blockHalf2.get(),
+        this.standardDrawer(gen, variant, data.blockHalf2.get(),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_2")),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side_h")),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
             2, true);
-        this.standardDrawer(variant, data.blockHalf4.get(),
+        this.standardDrawer(gen, variant, data.blockHalf4.get(),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_4")),
             ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side_h")),
@@ -81,8 +87,8 @@ public class ModBlockStateProvider extends BlockStateProvider
             4, true);
     }
 
-
-    private void standardDrawer(VariantRegistry variant,
+    private void standardDrawer(BlockModelGenerators gen,
+        VariantRegistry variant,
         BlockStandardDrawers block,
         ResourceLocation side,
         ResourceLocation front,
@@ -90,11 +96,11 @@ public class ModBlockStateProvider extends BlockStateProvider
         int size,
         boolean half)
     {
-        this.standardDrawer(variant, block, side, front, side, side, trim, size, half);
+        this.standardDrawer(gen, variant, block, side, front, side, side, trim, size, half);
     }
 
-
-    private void standardDrawer(VariantRegistry variant,
+    private void standardDrawer(BlockModelGenerators gen,
+        VariantRegistry variant,
         BlockStandardDrawers block,
         ResourceLocation side,
         ResourceLocation front,
@@ -106,34 +112,31 @@ public class ModBlockStateProvider extends BlockStateProvider
     {
         String parentType = half ? "half" : "full";
         ResourceLocation parent =
-            ResourceLocation.fromNamespaceAndPath(StorageDrawers.MOD_ID, "block/" + parentType + "_drawers_orientable");
+            ResourceLocation.fromNamespaceAndPath(ModConstants.MOD_ID, "block/" + parentType + "_drawers_orientable");
 
-        ModelFile model = this.models()
-            .withExistingParent(variant.getDrawerModelName(size, half), parent)
-            .texture("particle", front)
-            .texture("east", side)
-            .texture("west", side)
-            .texture("north", front)
-            .texture("up", top)
-            .texture("down", top)
-            .texture("south", back)
-            .texture("trim", trim);
+        TextureSlot trim1 = TextureSlot.create("trim");
 
-        this.drawerState(block, model);
-    }
+        ModelTemplate blockModel = new ModelTemplate(Optional.of(parent),
+            Optional.empty(),
+            TextureSlot.PARTICLE,
+            TextureSlot.NORTH,
+            TextureSlot.SOUTH,
+            TextureSlot.EAST,
+            TextureSlot.WEST,
+            TextureSlot.UP,
+            TextureSlot.DOWN,
+            trim1);
 
+        TextureMapping textureMapping = new TextureMapping().
+            put(TextureSlot.PARTICLE, front).
+            put(TextureSlot.EAST, side).
+            put(TextureSlot.WEST, side).
+            put(TextureSlot.NORTH, front).
+            put(TextureSlot.UP, top).
+            put(TextureSlot.DOWN, top).
+            put(TextureSlot.SOUTH, back).
+            put(trim1, trim);
 
-    private void drawerState(BlockStandardDrawers block, ModelFile model)
-    {
-        VariantBlockStateBuilder builder = this.getVariantBuilder(block);
-
-        builder.partialState().with(BlockDrawers.FACING, Direction.NORTH).
-            addModels(new ConfiguredModel(model));
-        builder.partialState().with(BlockDrawers.FACING, Direction.EAST).
-            addModels(new ConfiguredModel(model, 0, 90, false));
-        builder.partialState().with(BlockDrawers.FACING, Direction.SOUTH).
-            addModels(new ConfiguredModel(model, 0, 180, false));
-        builder.partialState().with(BlockDrawers.FACING, Direction.WEST).
-            addModels(new ConfiguredModel(model, 0, 270, false));
+        gen.createHorizontallyRotatedBlock(block, TexturedModel.createDefault(block1 -> textureMapping, blockModel));
     }
 }
