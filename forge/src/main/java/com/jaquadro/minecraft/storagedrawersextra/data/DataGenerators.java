@@ -20,7 +20,7 @@ public class DataGenerators
         PackOutput output = generator.getPackOutput();
         ExistingFileHelper helper = event.getExistingFileHelper();
 
-        generator.addProvider(event.includeServer(), new ModRecipeProvider(output, event.getLookupProvider()));
+        generator.addProvider(event.includeServer(), new ModRecipeProvider.Runner(output, event.getLookupProvider()));
         generator.addProvider(event.includeServer(), new ModLootTableProvider(output, event.getLookupProvider()));
         generator.addProvider(event.includeServer(), new ModBlockTagProvider(output, event.getLookupProvider()));
         generator.addProvider(event.includeServer(), new ModItemTagProvider(output, event.getLookupProvider()));

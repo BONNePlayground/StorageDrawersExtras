@@ -30,7 +30,7 @@ license="${license}"
 [[dependencies."${mod_id}"]]
     modId="storagedrawers"
     mandatory=true
-    versionRange="[13, 14)"
+    versionRange="${storagedrawers_range}"
     ordering="BEFORE"
     side="BOTH"
 

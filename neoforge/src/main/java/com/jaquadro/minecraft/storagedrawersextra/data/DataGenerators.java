@@ -10,7 +10,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 
-@EventBusSubscriber(modid = StorageDrawersExtra.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = StorageDrawersExtra.MOD_ID)
 public class DataGenerators
 {
     @SubscribeEvent
@@ -20,7 +20,7 @@ public class DataGenerators
         PackOutput output = generator.getPackOutput();
         ExistingFileHelper helper = event.getExistingFileHelper();
 
-        generator.addProvider(event.includeServer(), new ModRecipeProvider(output, event.getLookupProvider()));
+        generator.addProvider(event.includeServer(), new ModRecipeProvider.Runner(output, event.getLookupProvider()));
         generator.addProvider(event.includeServer(), new ModLootTableProvider(output, event.getLookupProvider()));
         generator.addProvider(event.includeServer(), new ModBlockTagProvider(output, event.getLookupProvider()));
         generator.addProvider(event.includeServer(), new ModItemTagProvider(output, event.getLookupProvider()));

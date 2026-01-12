@@ -18,19 +18,19 @@ dependencies {
     modImplementation "curse.maven:glitchcore-955399:${fabric_glitchcore}"
     modImplementation "curse.maven:terrablender-fabric-565956:${fabric_terrablender}"
 
-    modImplementation "curse.maven:oh-the-biomes-weve-gone-1070751:${fabric_ohthebiomeswevegone}"
-    modImplementation "curse.maven:oh-the-trees-youll-grow-962544:${fabric_ohthetreesyoullgrow}"
-    modImplementation "curse.maven:corgilib-693313:${fabric_corgilib}"
-    modImplementation "curse.maven:geckolib-388172:${fabric_geckolib}"
+//    modImplementation "curse.maven:oh-the-biomes-weve-gone-1070751:${fabric_ohthebiomeswevegone}"
+//    modImplementation "curse.maven:oh-the-trees-youll-grow-962544:${fabric_ohthetreesyoullgrow}"
+//    modImplementation "curse.maven:corgilib-693313:${fabric_corgilib}"
+//    modImplementation "curse.maven:geckolib-388172:${fabric_geckolib}"
+//
+//    modImplementation "curse.maven:ecologics-570463:${fabric_ecologics}"
+//    modImplementation "curse.maven:cloth-config-348521:${fabric_cloth_config}"
+//
+//    modImplementation "curse.maven:jei-238222:${fabric_jei}"
 
-    modImplementation "curse.maven:ecologics-570463:${fabric_ecologics}"
-    modImplementation "curse.maven:cloth-config-348521:${fabric_cloth_config}"
-
-    modImplementation "curse.maven:jei-238222:${fabric_jei}"
-
-//    include implementation("com.electronwill.night-config:core:${night_config}")
-//    include implementation("com.electronwill.night-config:toml:${night_config}")
-//    include implementation("net.jodah:typetools:${typetools}")
+    include implementation("com.electronwill.night-config:core:${night_config}")
+    include implementation("com.electronwill.night-config:toml:${night_config}")
+    include implementation("net.jodah:typetools:${typetools}")
 }
 
 fabricApi {
@@ -69,28 +69,28 @@ loom {
     }
 }
 
-curseforge {
-    project {
-        apiKey = System.getenv("CURSEFORGE_TOKEN")
-        id = "1379706"
-        changelog = rootProject.file("CHANGELOG_LATEST.md").text
-        changelogType = "markdown"
-        releaseType = "release"
-        addGameVersion "1.21.1"
-        addGameVersion "Fabric"
-        addGameVersion "Java 21"
-
-        relations {
-            requiredDependency "storage-drawers"
-            optionalDependency "oh-the-biomes-weve-gone"
-            optionalDependency "biomes-o-plenty"
-            optionalDependency "ecologics"
-        }
-        mainArtifact(tasks.remapJar) {
-            displayName = "${file_name}-${project.name}-${minecraft_version}-${version}"
-        }
-        options {
-            javaVersionAutoDetect = false
-        }
-    }
-}
+//curseforge {
+//    project {
+//        apiKey = System.getenv("CURSEFORGE_TOKEN")
+//        id = "1379706"
+//        changelog = rootProject.file("CHANGELOG_LATEST.md").text
+//        changelogType = "markdown"
+//        releaseType = "release"
+//        addGameVersion "1.21.1"
+//        addGameVersion "Fabric"
+//        addGameVersion "Java 21"
+//
+//        relations {
+//            requiredDependency "storage-drawers"
+//            optionalDependency "oh-the-biomes-weve-gone"
+//            optionalDependency "biomes-o-plenty"
+//            optionalDependency "ecologics"
+//        }
+//        mainArtifact(tasks.remapJar) {
+//            displayName = "${file_name}-${project.name}-${minecraft_version}-${version}"
+//        }
+//        options {
+//            javaVersionAutoDetect = false
+//        }
+//    }
+//}

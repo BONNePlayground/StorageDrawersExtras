@@ -95,7 +95,7 @@ public class ModLootTableProvider extends LootTableProvider
         ProblemReporter.Collector reportCollector = new ProblemReporter.Collector();
 
         HolderGetter.Provider holdergetter$provider =
-            new RegistryAccess.ImmutableRegistryAccess(List.of(writableregistry)).freeze().asGetterLookup();
+            new RegistryAccess.ImmutableRegistryAccess(List.of(writableregistry)).freeze();
 
 
         ValidationContext validationcontext = new ValidationContext(reportCollector,
@@ -197,7 +197,8 @@ public class ModLootTableProvider extends LootTableProvider
                 add(LootItem.lootTableItem(block)).
                 when(ExplosionCondition.survivesExplosion()));
 
-            CONDITION_MAP.put(block.getLootTable(), new ModLoadedCondition(modId));
+            block.getLootTable().ifPresent(table ->
+                CONDITION_MAP.put(table, new ModLoadedCondition(modId)));
 
             this.add(block, lootBuilder);
         }
