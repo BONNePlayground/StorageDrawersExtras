@@ -73,14 +73,13 @@ curseforge {
         changelog = rootProject.file("CHANGELOG_LATEST.md").text
         changelogType = "markdown"
         releaseType = "release"
-        addGameVersion "1.21.2"
         addGameVersion "1.21.3"
         addGameVersion "NeoForge"
         addGameVersion "Java 21"
 
         relations {
             requiredDependency "storage-drawers"
-            optionalDependency "oh-the-biomes-weve-gone"
+//            optionalDependency "oh-the-biomes-weve-gone"
             optionalDependency "biomes-o-plenty"
 //            optionalDependency "ecologics"
 //            optionalDependency "immersive-engineering"

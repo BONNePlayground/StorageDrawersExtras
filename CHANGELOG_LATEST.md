@@ -1,19 +1,3 @@
-### Storage Drawers Extra: Reloaded - 13.1.0
-- Added missing Pine wood drawer from Biomes'o'Plenty
-- Added missing Maple drawer from Biomes'o'Plenty
-- Added missing Empyreal drawer from Biomes'o'Plenty
-- Added missing Spirit drawer from Oh The Biomes We've Gone
-
-- Added Maple wood drawer from Autumnity
-- Added Azalea wood drawer from Ecologics
-- Added Coconut wood drawer from Ecologics
-- Added Flowering Azalea wood drawer from Ecologics
-- Added Walnut wood drawer from Ecologics
-- Added Drift wood drawer from Upgrade Aquatic
-- Added River wood drawer from Upgrade Aquatic
-
-- Changed recipe grouping by wood type, instead of everything being in same group
-- Changed recipe unlock condition: requires plank/slab of given wood type.
-
-WARNING:
-- treated wood drawers will break when updating from 13.0 to 13.1
+### Storage Drawers Extra: Reloaded - 14.0.0
+- Update to Minecraft 1.21.3
+- Fabric: fix issue with missing decoration rendering
