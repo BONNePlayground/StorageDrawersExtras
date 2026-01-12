@@ -21,7 +21,7 @@ neoForge {
             programArgument("--mod")
             programArgument(mod_id)
             programArgument("--output")
-            programArgument(file('src/generated/resources/').getAbsolutePath())
+            programArgument(file('src/generated/server/').getAbsolutePath())
             programArgument("--existing")
             programArgument(file('src/main/resources/').getAbsolutePath())
             serverData()
@@ -31,7 +31,7 @@ neoForge {
             programArgument("--mod")
             programArgument(mod_id)
             programArgument("--output")
-            programArgument(file('src/generated/resources/').getAbsolutePath())
+            programArgument(file('src/generated/client/').getAbsolutePath())
             programArgument("--existing")
             programArgument(file('src/main/resources/').getAbsolutePath())
             clientData()
@@ -73,7 +73,14 @@ dependencies {
     implementation "curse.maven:jei-238222:${neoforge_jei}"
 }
 
-sourceSets.main.resources { srcDir 'src/generated/resources' }
+sourceSets {
+    main {
+        resources {
+            srcDir 'src/generated/client'
+            srcDir 'src/generated/server'
+        }
+    }
+}
 
 curseforge {
     project {
