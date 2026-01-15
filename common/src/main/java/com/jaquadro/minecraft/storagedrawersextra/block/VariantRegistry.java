@@ -24,6 +24,7 @@ public enum VariantRegistry
     BIOMESOPLENTY_PINE(EnumMod.BOP, "pine", "pine_planks", "pine_slab"),
     BIOMESOPLENTY_MAPLE(EnumMod.BOP, "maple", "maple_planks", "maple_slab"),
     BIOMESOPLENTY_EMPYREAL(EnumMod.BOP, "empyreal", "empyreal_planks", "empyreal_slab"),
+    BIOMESOPLENTY_ORIGIN_OAK(EnumMod.BOP, "origin_oak", "origin_oak_planks", "origin_oak_slab"),
 
     BIOMESWEVEGONE_ASPEN(EnumMod.BIOMESWEVEGONE, "aspen", "aspen_planks", "aspen_slab"),
     BIOMESWEVEGONE_BAOBAB(EnumMod.BIOMESWEVEGONE, "baobab", "baobab_planks", "baobab_slab"),

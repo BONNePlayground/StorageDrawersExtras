@@ -7,7 +7,6 @@
 package com.jaquadro.minecraft.storagedrawersextra.data;
 
 
-import com.google.common.collect.Multimap;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.jaquadro.minecraft.storagedrawersextra.StorageDrawersExtra;
@@ -103,11 +102,10 @@ public class ModLootTableProvider extends LootTableProvider
             holdergetter$provider);
 
         this.validate(writableregistry, validationcontext, reportCollector);
-        Multimap<String, String> validationMap = reportCollector.get();
 
-        if (!validationMap.isEmpty())
+        if (!reportCollector.isEmpty())
         {
-            validationMap.forEach((key, value) -> StorageDrawersExtra.LOGGER.warn(
+            reportCollector.forEach((key, value) -> StorageDrawersExtra.LOGGER.warn(
                 "Found validation problem in {}: {}", key, value));
             throw new IllegalStateException("Failed to validate loot tables, see logs");
         }

@@ -31,35 +31,35 @@ public class ModBlockTagProvider extends IntrinsicHolderTagsProvider<Block>
 
             this.tag(BlockTags.MINEABLE_WITH_AXE).
                 replace(false).
-                addOptional(variant.getData().blockFull1.getId()).
-                addOptional(variant.getData().blockFull2.getId()).
-                addOptional(variant.getData().blockFull4.getId()).
-                addOptional(variant.getData().blockHalf1.getId()).
-                addOptional(variant.getData().blockHalf2.getId()).
-                addOptional(variant.getData().blockHalf4.getId()).
-                addOptional(variant.getData().blockTrim.getId());
+                addOptional(variant.getData().blockFull1.get()).
+                addOptional(variant.getData().blockFull2.get()).
+                addOptional(variant.getData().blockFull4.get()).
+                addOptional(variant.getData().blockHalf1.get()).
+                addOptional(variant.getData().blockHalf2.get()).
+                addOptional(variant.getData().blockHalf4.get()).
+                addOptional(variant.getData().blockTrim.get());
 
             this.tag(SDETags.BLOCK_DRAWERS).
                 replace(false).
-                addOptional(variant.getData().blockFull1.getId()).
-                addOptional(variant.getData().blockFull2.getId()).
-                addOptional(variant.getData().blockFull4.getId()).
-                addOptional(variant.getData().blockHalf1.getId()).
-                addOptional(variant.getData().blockHalf2.getId()).
-                addOptional(variant.getData().blockHalf4.getId());
+                addOptional(variant.getData().blockFull1.get()).
+                addOptional(variant.getData().blockFull2.get()).
+                addOptional(variant.getData().blockFull4.get()).
+                addOptional(variant.getData().blockHalf1.get()).
+                addOptional(variant.getData().blockHalf2.get()).
+                addOptional(variant.getData().blockHalf4.get());
             this.tag(SDETags.BLOCK_FULL_DRAWERS).
                 replace(false).
-                addOptional(variant.getData().blockFull1.getId()).
-                addOptional(variant.getData().blockFull2.getId()).
-                addOptional(variant.getData().blockFull4.getId());
+                addOptional(variant.getData().blockFull1.get()).
+                addOptional(variant.getData().blockFull2.get()).
+                addOptional(variant.getData().blockFull4.get());
             this.tag(SDETags.BLOCK_HALF_DRAWERS).
                 replace(false).
-                addOptional(variant.getData().blockHalf1.getId()).
-                addOptional(variant.getData().blockHalf2.getId()).
-                addOptional(variant.getData().blockHalf4.getId());
+                addOptional(variant.getData().blockHalf1.get()).
+                addOptional(variant.getData().blockHalf2.get()).
+                addOptional(variant.getData().blockHalf4.get());
             this.tag(SDETags.BLOCK_TRIM).
                 replace(false).
-                addOptional(variant.getData().blockTrim.getId());
+                addOptional(variant.getData().blockTrim.get());
         }
     }
 }

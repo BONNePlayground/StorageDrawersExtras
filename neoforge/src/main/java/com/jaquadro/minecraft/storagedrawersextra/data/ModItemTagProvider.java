@@ -30,25 +30,25 @@ public class ModItemTagProvider extends IntrinsicHolderTagsProvider<Item>
 
             this.tag(SDETags.ITEM_DRAWERS).
                 replace(false).
-                addOptional(variant.getData().blockFull1.get().asItem().builtInRegistryHolder().key().location()).
-                addOptional(variant.getData().blockFull2.get().asItem().builtInRegistryHolder().key().location()).
-                addOptional(variant.getData().blockFull4.get().asItem().builtInRegistryHolder().key().location()).
-                addOptional(variant.getData().blockHalf1.get().asItem().builtInRegistryHolder().key().location()).
-                addOptional(variant.getData().blockHalf2.get().asItem().builtInRegistryHolder().key().location()).
-                addOptional(variant.getData().blockHalf4.get().asItem().builtInRegistryHolder().key().location());
+                addOptional(variant.getData().blockFull1.get().asItem()).
+                addOptional(variant.getData().blockFull2.get().asItem()).
+                addOptional(variant.getData().blockFull4.get().asItem()).
+                addOptional(variant.getData().blockHalf1.get().asItem()).
+                addOptional(variant.getData().blockHalf2.get().asItem()).
+                addOptional(variant.getData().blockHalf4.get().asItem());
             this.tag(SDETags.ITEM_FULL_DRAWERS).
                 replace(false).
-                addOptional(variant.getData().blockFull1.get().asItem().builtInRegistryHolder().key().location()).
-                addOptional(variant.getData().blockFull2.get().asItem().builtInRegistryHolder().key().location()).
-                addOptional(variant.getData().blockFull4.get().asItem().builtInRegistryHolder().key().location());
+                addOptional(variant.getData().blockFull1.get().asItem()).
+                addOptional(variant.getData().blockFull2.get().asItem()).
+                addOptional(variant.getData().blockFull4.get().asItem());
             this.tag(SDETags.ITEM_HALF_DRAWERS).
                 replace(false).
-                addOptional(variant.getData().blockHalf1.get().asItem().builtInRegistryHolder().key().location()).
-                addOptional(variant.getData().blockHalf2.get().asItem().builtInRegistryHolder().key().location()).
-                addOptional(variant.getData().blockHalf4.get().asItem().builtInRegistryHolder().key().location());
+                addOptional(variant.getData().blockHalf1.get().asItem()).
+                addOptional(variant.getData().blockHalf2.get().asItem()).
+                addOptional(variant.getData().blockHalf4.get().asItem());
             this.tag(SDETags.ITEM_TRIM).
                 replace(false).
-                addOptional(variant.getData().blockTrim.get().asItem().builtInRegistryHolder().key().location());
+                addOptional(variant.getData().blockTrim.get().asItem());
         }
     }
 }
