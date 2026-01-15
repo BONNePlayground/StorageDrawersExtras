@@ -55,10 +55,10 @@ dependencies {
     implementation "curse.maven:glitchcore-955399:${neoforge_glitchcore}"
     implementation "curse.maven:terrablender-neoforge-940057:${neoforge_terrablender}"
 
-    implementation "curse.maven:oh-the-biomes-weve-gone-1070751:${neoforge_ohthebiomeswevegone}"
-    implementation "curse.maven:oh-the-trees-youll-grow-962544:${neoforge_ohthetreesyoullgrow}"
-    implementation "curse.maven:corgilib-693313:${neoforge_corgilib}"
-    implementation "curse.maven:geckolib-388172:${neoforge_geckolib}"
+//    implementation "curse.maven:oh-the-biomes-weve-gone-1070751:${neoforge_ohthebiomeswevegone}"
+//    implementation "curse.maven:oh-the-trees-youll-grow-962544:${neoforge_ohthetreesyoullgrow}"
+//    implementation "curse.maven:corgilib-693313:${neoforge_corgilib}"
+//    implementation "curse.maven:geckolib-388172:${neoforge_geckolib}"
 
 //    implementation "curse.maven:immersive-engineering-231951:${neoforge_immersive_engineering}"
 
@@ -89,13 +89,13 @@ curseforge {
         changelog = rootProject.file("CHANGELOG_LATEST.md").text
         changelogType = "markdown"
         releaseType = "release"
-        addGameVersion "1.21.4"
+        addGameVersion "1.21.5"
         addGameVersion "NeoForge"
         addGameVersion "Java 21"
 
         relations {
             requiredDependency "storage-drawers"
-            optionalDependency "oh-the-biomes-weve-gone"
+//            optionalDependency "oh-the-biomes-weve-gone"
             optionalDependency "biomes-o-plenty"
 //            optionalDependency "ecologics"
 //            optionalDependency "immersive-engineering"
