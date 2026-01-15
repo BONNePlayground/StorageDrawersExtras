@@ -9,7 +9,7 @@ import com.jaquadro.minecraft.storagedrawersextra.block.VariantRegistry;
 
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -47,50 +47,50 @@ public class ModBlockStateProvider extends BlockStateProvider
         this.simpleBlock(data.blockTrim.get(), blockTrim);
 
         this.standardDrawer(variant, data.blockFull1.get(),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_1")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_1")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
             1, false);
         this.standardDrawer(variant, data.blockFull2.get(),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_2")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_2")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
             2, false);
         this.standardDrawer(variant, data.blockFull4.get(),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_4")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_4")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
             4, false);
 
         this.standardDrawer(variant, data.blockHalf1.get(),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_1")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side_h")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_1")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side_h")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
             1, true);
         this.standardDrawer(variant, data.blockHalf2.get(),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_2")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side_h")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_2")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side_h")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
             2, true);
         this.standardDrawer(variant, data.blockHalf4.get(),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_4")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side_h")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_4")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side_h")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
             4, true);
     }
 
 
     private void standardDrawer(VariantRegistry variant,
         BlockStandardDrawers block,
-        ResourceLocation side,
-        ResourceLocation front,
-        ResourceLocation trim,
+        Identifier side,
+        Identifier front,
+        Identifier trim,
         int size,
         boolean half)
     {
@@ -100,17 +100,17 @@ public class ModBlockStateProvider extends BlockStateProvider
 
     private void standardDrawer(VariantRegistry variant,
         BlockStandardDrawers block,
-        ResourceLocation side,
-        ResourceLocation front,
-        ResourceLocation top,
-        ResourceLocation back,
-        ResourceLocation trim,
+        Identifier side,
+        Identifier front,
+        Identifier top,
+        Identifier back,
+        Identifier trim,
         int size,
         boolean half)
     {
         String parentType = half ? "half" : "full";
-        ResourceLocation parent =
-            ResourceLocation.fromNamespaceAndPath(StorageDrawers.MOD_ID, "block/" + parentType + "_drawers_orientable");
+        Identifier parent =
+            Identifier.fromNamespaceAndPath(StorageDrawers.MOD_ID, "block/" + parentType + "_drawers_orientable");
 
         ModelFile model = this.models()
             .withExistingParent(variant.getDrawerModelName(size, half), parent)

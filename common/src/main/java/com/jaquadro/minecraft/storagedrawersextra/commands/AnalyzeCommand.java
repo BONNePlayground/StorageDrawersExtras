@@ -21,7 +21,7 @@ import net.minecraft.commands.Commands;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 
@@ -79,7 +79,7 @@ public class AnalyzeCommand
 
     private static void printOutTable(String modId, boolean missing)
     {
-        Set<ResourceLocation> drawersImplemented = new HashSet<>();
+        Set<Identifier> drawersImplemented = new HashSet<>();
 
         for (VariantRegistry value : VariantRegistry.values())
         {
@@ -87,11 +87,11 @@ public class AnalyzeCommand
         }
 
 
-        List<ResourceLocation> data = BuiltInRegistries.BLOCK.stream().
+        List<Identifier> data = BuiltInRegistries.BLOCK.stream().
             filter(block -> block.defaultBlockState().is(BlockTags.PLANKS)).
             map(Block::builtInRegistryHolder).
             map(Holder.Reference::key).
-            map(ResourceKey::location).
+            map(ResourceKey::identifier).
             filter(location -> location.getNamespace().equals(modId) ||
                 modId == null && !location.getNamespace().equals("minecraft")).
             filter(location -> !missing || !drawersImplemented.contains(location)).

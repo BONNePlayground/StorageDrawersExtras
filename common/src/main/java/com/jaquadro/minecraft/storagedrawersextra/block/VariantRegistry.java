@@ -4,7 +4,7 @@ import com.jaquadro.minecraft.storagedrawers.core.ModBlockVariants;
 import com.jaquadro.minecraft.storagedrawersextra.StorageDrawersExtra;
 import com.texelsaurus.minecraft.chameleon.registry.ChameleonRegistry;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
@@ -69,9 +69,9 @@ public enum VariantRegistry
 
     private final String name;
 
-    private final ResourceLocation plankResource;
+    private final Identifier plankResource;
 
-    private final ResourceLocation slabResource;
+    private final Identifier slabResource;
 
     private final ModBlockVariants.VariantData data;
 
@@ -80,10 +80,10 @@ public enum VariantRegistry
     {
         this.modid = mod.getSerializedName();
         this.name = name;
-        this.plankResource = plankName != null ? ResourceLocation.fromNamespaceAndPath(this.modid, plankName) : null;
-        this.slabResource = slabName != null ? ResourceLocation.fromNamespaceAndPath(this.modid, slabName) : null;
+        this.plankResource = plankName != null ? Identifier.fromNamespaceAndPath(this.modid, plankName) : null;
+        this.slabResource = slabName != null ? Identifier.fromNamespaceAndPath(this.modid, slabName) : null;
 
-        this.data = new ModBlockVariants.VariantData(ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID,
+        this.data = new ModBlockVariants.VariantData(Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID,
             this.modid + "_" + name));
     }
 
@@ -106,13 +106,13 @@ public enum VariantRegistry
     }
 
 
-    public ResourceLocation getPlankResource()
+    public Identifier getPlankResource()
     {
         return this.plankResource;
     }
 
 
-    public ResourceLocation getSlabResource()
+    public Identifier getSlabResource()
     {
         return this.slabResource;
     }

@@ -15,7 +15,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
@@ -78,7 +78,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private void makeDrawer1(VariantRegistry variant, boolean half, RecipeOutput recipeOutput)
     {
-        ResourceLocation woodResource = half ? variant.getSlabResource() : variant.getPlankResource();
+        Identifier woodResource = half ? variant.getSlabResource() : variant.getPlankResource();
 
         if (woodResource == null)
             return;
@@ -108,7 +108,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private void makeDrawer2(VariantRegistry variant, boolean half, RecipeOutput recipeOutput)
     {
-        ResourceLocation woodResource = half ? variant.getSlabResource() : variant.getPlankResource();
+        Identifier woodResource = half ? variant.getSlabResource() : variant.getPlankResource();
         if (woodResource == null)
             return;
 
@@ -137,7 +137,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private void makeDrawer4(VariantRegistry variant, boolean half, RecipeOutput recipeOutput)
     {
-        ResourceLocation woodResource = half ? variant.getSlabResource() : variant.getPlankResource();
+        Identifier woodResource = half ? variant.getSlabResource() : variant.getPlankResource();
         if (woodResource == null)
             return;
 

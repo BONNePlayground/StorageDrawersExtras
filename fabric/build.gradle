@@ -3,6 +3,7 @@ plugins {
     id 'fabric-loom'
     id 'com.matthewprenger.cursegradle' version '1.4.0'
 }
+
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     mappings loom.layered {
@@ -26,7 +27,7 @@ dependencies {
 //    modImplementation "curse.maven:ecologics-570463:${fabric_ecologics}"
 //    modImplementation "curse.maven:cloth-config-348521:${fabric_cloth_config}"
 //
-//    modImplementation "curse.maven:jei-238222:${fabric_jei}"
+    modImplementation "curse.maven:jei-238222:${fabric_jei}"
 
     include implementation("com.electronwill.night-config:core:${night_config}")
     include implementation("com.electronwill.night-config:toml:${night_config}")
@@ -69,6 +70,32 @@ loom {
     }
 }
 
+// Implement mcgradleconventions loader attribute
+def loaderAttribute = Attribute.of('io.github.mcgradleconventions.loader', String)
+['apiElements', 'runtimeElements', 'sourcesElements', 'javadocElements', 'includeInternal', 'modCompileClasspath'].each { variant ->
+    configurations.named("$variant") {
+        attributes {
+            attribute(loaderAttribute, 'fabric')
+        }
+    }
+}
+sourceSets.configureEach {
+    [it.compileClasspathConfigurationName, it.runtimeClasspathConfigurationName].each { variant->
+        configurations.named("$variant") {
+            attributes {
+                attribute(loaderAttribute, 'fabric')
+            }
+        }
+    }
+}
+loom.remapConfigurations.configureEach {
+    configurations.named(it.name) {
+        attributes {
+            attribute(loaderAttribute, 'fabric')
+        }
+    }
+}
+
 curseforge {
     project {
         apiKey = System.getenv("CURSEFORGE_TOKEN")
@@ -76,7 +103,7 @@ curseforge {
         changelog = rootProject.file("CHANGELOG_LATEST.md").text
         changelogType = "markdown"
         releaseType = "release"
-        addGameVersion "1.21.10"
+        addGameVersion "1.21.11"
         addGameVersion "Fabric"
         addGameVersion "Java 21"
 
@@ -86,7 +113,7 @@ curseforge {
             optionalDependency "biomes-o-plenty"
 //            optionalDependency "ecologics"
         }
-        mainArtifact(tasks.remapJar) {
+        mainArtifact(tasks.named("remapJar").flatMap { it.archiveFile }) {
             displayName = "${file_name}-${project.name}-${minecraft_version}-${version}"
         }
         options {

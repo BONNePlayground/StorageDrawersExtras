@@ -30,7 +30,7 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.RandomSequence;
 import net.minecraft.world.flag.FeatureFlags;
@@ -69,15 +69,15 @@ public class ModLootTableProvider extends LootTableProvider
     {
         WritableRegistry<LootTable> writableregistry =
             new MappedRegistry<>(Registries.LOOT_TABLE, Lifecycle.experimental());
-        Map<RandomSupport.Seed128bit, ResourceLocation> map = new Object2ObjectOpenHashMap<>();
+        Map<RandomSupport.Seed128bit, Identifier> map = new Object2ObjectOpenHashMap<>();
 
         this.getTables().forEach(entry ->
             entry.provider().
                 apply(provider).
                 generate((tableKey, builder) ->
                 {
-                    ResourceLocation tableLocation = tableKey.location();
-                    ResourceLocation randomSequence = map.put(RandomSequence.seedForKey(tableLocation), tableLocation);
+                    Identifier tableLocation = tableKey.location();
+                    Identifier randomSequence = map.put(RandomSequence.seedForKey(tableLocation), tableLocation);
 
                     if (randomSequence != null)
                     {

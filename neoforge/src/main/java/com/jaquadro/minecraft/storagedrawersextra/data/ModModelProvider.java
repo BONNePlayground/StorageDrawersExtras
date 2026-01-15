@@ -15,7 +15,7 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 
 public class ModModelProvider extends ModelProvider
@@ -39,7 +39,7 @@ public class ModModelProvider extends ModelProvider
     void registerVariant(VariantRegistry variant, BlockModelGenerators gen, ItemModelGenerators itemModels)
     {
         // Register trim block with simple cube_all model
-        ResourceLocation trimTexture = ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side"));
+        Identifier trimTexture = Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side"));
         ModBlockVariants.VariantData data = variant.getData();
 
         gen.createTrivialBlock(data.blockTrim.get(),
@@ -48,51 +48,51 @@ public class ModModelProvider extends ModelProvider
 
         // Register full drawers
         this.standardDrawer(gen, variant, data.blockFull1.get(),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_1")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_1")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
             1, false);
         this.standardDrawer(gen, variant, data.blockFull2.get(),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_2")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_2")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
             2, false);
         this.standardDrawer(gen, variant, data.blockFull4.get(),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_4")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_4")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
             4, false);
 
         // Register half drawers
         this.standardDrawer(gen, variant, data.blockHalf1.get(),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_1")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side_h")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_1")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side_h")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
             1, true);
         this.standardDrawer(gen, variant, data.blockHalf2.get(),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_2")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side_h")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_2")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side_h")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
             2, true);
         this.standardDrawer(gen, variant, data.blockHalf4.get(),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_4")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side_h")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
-            ResourceLocation.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("front_4")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side_h")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("side")),
+            Identifier.fromNamespaceAndPath(StorageDrawersExtra.MOD_ID, variant.getTextureName("trim")),
             4, true);
     }
 
     private void standardDrawer(BlockModelGenerators gen,
         VariantRegistry variant,
         BlockStandardDrawers block,
-        ResourceLocation side,
-        ResourceLocation front,
-        ResourceLocation trim,
+        Identifier side,
+        Identifier front,
+        Identifier trim,
         int size,
         boolean half)
     {
@@ -102,17 +102,17 @@ public class ModModelProvider extends ModelProvider
     private void standardDrawer(BlockModelGenerators gen,
         VariantRegistry variant,
         BlockStandardDrawers block,
-        ResourceLocation side,
-        ResourceLocation front,
-        ResourceLocation top,
-        ResourceLocation back,
-        ResourceLocation trim,
+        Identifier side,
+        Identifier front,
+        Identifier top,
+        Identifier back,
+        Identifier trim,
         int size,
         boolean half)
     {
         String parentType = half ? "half" : "full";
-        ResourceLocation parent =
-            ResourceLocation.fromNamespaceAndPath(ModConstants.MOD_ID, "block/" + parentType + "_drawers_orientable");
+        Identifier parent =
+            Identifier.fromNamespaceAndPath(ModConstants.MOD_ID, "block/" + parentType + "_drawers_orientable");
 
         TextureSlot trim1 = TextureSlot.create("trim");
 

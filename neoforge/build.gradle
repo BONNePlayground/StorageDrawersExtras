@@ -89,7 +89,7 @@ curseforge {
         changelog = rootProject.file("CHANGELOG_LATEST.md").text
         changelogType = "markdown"
         releaseType = "release"
-        addGameVersion "1.21.10"
+        addGameVersion "1.21.11"
         addGameVersion "NeoForge"
         addGameVersion "Java 21"
 
@@ -102,7 +102,7 @@ curseforge {
 //            optionalDependency "autumnity"
 //            optionalDependency "upgrade-aquatic"
         }
-        mainArtifact(tasks.jar) {
+        mainArtifact(tasks.named("jar").flatMap { it.archiveFile }) {
             displayName = "${file_name}-${project.name}-${minecraft_version}-${version}"
         }
         options {

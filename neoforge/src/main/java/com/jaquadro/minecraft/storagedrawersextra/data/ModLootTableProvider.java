@@ -19,7 +19,6 @@ import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-import net.minecraft.Util;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.CachedOutput;
@@ -29,8 +28,9 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.ProblemReporter;
+import net.minecraft.util.Util;
 import net.minecraft.world.RandomSequence;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
@@ -67,20 +67,20 @@ public class ModLootTableProvider extends LootTableProvider
     {
         WritableRegistry<LootTable> writableregistry =
             new MappedRegistry<>(Registries.LOOT_TABLE, Lifecycle.experimental());
-        Map<RandomSupport.Seed128bit, ResourceLocation> map = new Object2ObjectOpenHashMap<>();
+        Map<RandomSupport.Seed128bit, Identifier> map = new Object2ObjectOpenHashMap<>();
 
         this.getTables().forEach(entry ->
             entry.provider().
                 apply(provider).
                 generate((tableKey, builder) ->
                 {
-                    ResourceLocation tableLocation = tableKey.location();
-                    ResourceLocation randomSequence = map.put(RandomSequence.seedForKey(tableLocation), tableLocation);
+                    Identifier tableLocation = tableKey.identifier();
+                    Identifier randomSequence = map.put(RandomSequence.seedForKey(tableLocation), tableLocation);
 
                     if (randomSequence != null)
                     {
                         Util.logAndPauseIfInIde("Loot table random sequence seed collision on "
-                            + randomSequence + " and " + tableKey.location());
+                            + randomSequence + " and " + tableKey.identifier());
                     }
 
                     builder.setRandomSequence(tableLocation);
@@ -127,7 +127,7 @@ public class ModLootTableProvider extends LootTableProvider
                     ICondition.writeConditions(ops, (JsonObject) tableJson, Collections.singletonList(condition));
                 }
 
-                Path path = this.pathProvider.json(lootTableKey.location());
+                Path path = this.pathProvider.json(lootTableKey.identifier());
 
                 return DataProvider.saveStable(
                     cachedOutput,

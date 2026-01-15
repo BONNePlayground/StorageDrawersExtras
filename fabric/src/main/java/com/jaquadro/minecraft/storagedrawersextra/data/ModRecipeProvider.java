@@ -18,7 +18,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
@@ -81,7 +81,7 @@ public class ModRecipeProvider extends FabricRecipeProvider
 
             private void makeDrawer1(VariantRegistry variant, boolean half, RecipeOutput recipeOutput)
             {
-                ResourceLocation woodResource = half ? variant.getSlabResource() : variant.getPlankResource();
+                Identifier woodResource = half ? variant.getSlabResource() : variant.getPlankResource();
 
                 if (woodResource == null)
                     return;
@@ -107,7 +107,7 @@ public class ModRecipeProvider extends FabricRecipeProvider
 
             private void makeDrawer2(VariantRegistry variant, boolean half, RecipeOutput recipeOutput)
             {
-                ResourceLocation woodResource = half ? variant.getSlabResource() : variant.getPlankResource();
+                Identifier woodResource = half ? variant.getSlabResource() : variant.getPlankResource();
                 if (woodResource == null)
                     return;
 
@@ -132,7 +132,7 @@ public class ModRecipeProvider extends FabricRecipeProvider
 
             private void makeDrawer4(VariantRegistry variant, boolean half, RecipeOutput recipeOutput)
             {
-                ResourceLocation woodResource = half ? variant.getSlabResource() : variant.getPlankResource();
+                Identifier woodResource = half ? variant.getSlabResource() : variant.getPlankResource();
                 if (woodResource == null)
                     return;
 
